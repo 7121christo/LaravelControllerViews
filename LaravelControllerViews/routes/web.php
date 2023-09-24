@@ -1,6 +1,9 @@
 <?php
 
+// use Illuminate\Console\View\Components\Info;
 use Illuminate\Support\Facades\Route;
+use App\Models\Info;
+use App\Http\Controllers\InfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +25,19 @@ Route::get('/', function () {
 Route::get('/profile', function () {
     return view('profile', [
         "title" => "Profile",
-        "name" => "CHR",
-        "email" => "CHR@sdff.com",
-        "image" => "gt3.jpeg",
+        "name" => "Christo",
+        "insta" => "@chr.adyatma",
+        "image" => "WIZARD.png",
     ]);
 });
 
-// Route::get('/posts', [PostController::class, 'index']);
+Route::get('/infos', [InfoController::class, 'index']);
 
-// Route::get('/posts/{slug}', [PostController::class, 'show']);
+Route::get('/infos/{slug}', [InfoController::class, 'show']);
 
-// Route::get('/info', function () {
-//     return view('posts', [
-//         "title" => "Blog",
-//         "posts" => Post::all()
-//     ]);
-// });
+Route::get('/information', function () {
+    return view('infos', [
+        "title" => "Information",
+        "infos" => Info::all()
+    ]);
+});
