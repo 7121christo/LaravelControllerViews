@@ -14,5 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home', [
+        "title" => "Home",
+    ]);
 });
+
+Route::get('/profile', function () {
+    return view('profile', [
+        "title" => "Profile",
+        "name" => "CHR",
+        "email" => "CHR@sdff.com",
+        "image" => "gt3.jpeg",
+    ]);
+});
+
+// Route::get('/posts', [PostController::class, 'index']);
+
+// Route::get('/posts/{slug}', [PostController::class, 'show']);
+
+// Route::get('/info', function () {
+//     return view('posts', [
+//         "title" => "Blog",
+//         "posts" => Post::all()
+//     ]);
+// });
